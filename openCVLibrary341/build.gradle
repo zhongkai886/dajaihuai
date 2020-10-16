@@ -8,7 +8,12 @@ android {
         minSdkVersion 8
         targetSdkVersion 29
     }
-
+    allprojects {
+        repositories {
+            jcenter()
+            maven { url 'https://maven.google.com' }
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
