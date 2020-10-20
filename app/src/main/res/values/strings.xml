@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">dajaihuai</string>
     <string name="app_name2">dashoxian</string>
-
+    <string name="add_word">增加</string>
     <!-- TODO: Remove or change this placeholder text -->
+
+
 </resources>

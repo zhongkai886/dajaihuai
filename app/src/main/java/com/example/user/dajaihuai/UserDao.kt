@@ -1,23 +1,24 @@
 package com.example.user.dajaihuai
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.lifecycle.LiveData
+import androidx.room.*
 
 @Dao
 interface UserDao {
     @Query("SELECT * FROM users")
     fun getAll(): List<UserData>
 
-    @Query("SELECT * FROM users WHERE uid IN (:userIds)")
-    fun loadAllByIds(userIds: IntArray): List<UserData>
+    @Query("SELECT * from users ORDER BY app_name ASC")
+    fun getAllUser(): LiveData<List<UserData>>
+
+    @Query("SELECT * FROM users WHERE app_name IN (:userApp)")
+    fun loadAllByIds(userApp: Array<String>): List<UserData>
 
     @Query("SELECT * FROM users WHERE app_name LIKE :first AND " +
             "account LIKE :last LIMIT 1")
     fun findByName(first: String, last: String): UserData
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAll(vararg users: UserData?)
 
     @Insert

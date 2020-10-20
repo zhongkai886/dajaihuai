@@ -18,9 +18,9 @@ abstract class Appdatabase : RoomDatabase() {
             instance ?: buildDatabase(context).also { instance = it}
         }
 
-        private fun buildDatabase(context: Context) = Room.databaseBuilder(context,
+        fun buildDatabase(context: Context) = Room.databaseBuilder(context,
             Appdatabase::class.java, DATABASE_NAME).build()
     }
 
-    abstract fun getNotesDao(): UserDao
+    abstract fun getUsersDao(): UserDao
 }

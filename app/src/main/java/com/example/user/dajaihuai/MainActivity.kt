@@ -24,11 +24,11 @@ class MainActivity : AppCompatActivity() {
         Stetho.initializeWithDefaults(this);
         val db = Appdatabase(this)
 //        val userData:UserData? = null
-        var userData:UserData? = UserData(5,"facebook","account","password")
+//        var userData:UserData? = UserData("facebook","account","password")
 
         job = GlobalScope.launch(Dispatchers.IO) {
 //            db.getNotesDao().getAll()
-            db.getNotesDao().insertAll(userData)
+//            db.getUsersDao().insertAll(userData)
 //            db.getNotesDao().delete(userData)
         }
 
@@ -36,34 +36,34 @@ class MainActivity : AppCompatActivity() {
 
 //        db.getNotesDao().insertAll(UserData(1,"aaa","aaa","vvvv"))
 
-        buttona = findViewById<Button>(R.id.first_fragment)
-        buttonb = findViewById<Button>(R.id.second_fragment)
+//        buttona = findViewById<Button>(R.id.first_fragment)
+//        buttonb = findViewById<Button>(R.id.second_fragment)
 
         println("============")
         permission()
 
-        addFragment(firstFragment)
-        addFragment(secondFragment)
-        buttona.setOnClickListener {
-            replaceFragment(firstFragment)
-        }
-        buttonb.setOnClickListener {
-            replaceFragment(secondFragment)
-        }
+//        addFragment(firstFragment)
+//        addFragment(secondFragment)
+//        buttona.setOnClickListener {
+//            replaceFragment(firstFragment)
+//        }
+//        buttonb.setOnClickListener {
+//            replaceFragment(secondFragment)
+//        }
     }
 
-    private fun addFragment(f: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.fragment_container, f)
-        transaction.commit()
-    }
-
-    private fun replaceFragment(f : Fragment){
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, f)
-        transaction.commit()
-
-    }
+//    private fun addFragment(f: Fragment) {
+//        val transaction = supportFragmentManager.beginTransaction()
+//        transaction.add(R.id.fragment_container, f)
+//        transaction.commit()
+//    }
+//
+//    private fun replaceFragment(f : Fragment){
+//        val transaction = supportFragmentManager.beginTransaction()
+//        transaction.replace(R.id.fragment_container, f)
+//        transaction.commit()
+//
+//    }
     fun permission(){
         ActivityCompat.requestPermissions(this, arrayOf(
             android.Manifest.permission.CAMERA,
