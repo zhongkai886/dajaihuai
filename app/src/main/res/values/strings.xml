@@ -4,5 +4,8 @@
     <string name="add_word">增加</string>
     <!-- TODO: Remove or change this placeholder text -->
 
+    <string name="hint_word">Word...</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Word not saved because it is empty.</string>
 
 </resources>

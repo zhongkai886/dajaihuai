@@ -5,19 +5,19 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/ShowAppName"
+        android:id="@+id/textAppName"
         style="@style/word_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_orange_light" />
     <TextView
-        android:id="@+id/ShowAccount"
+        android:id="@+id/textAccount"
         style="@style/word_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_orange_light" />
     <TextView
-        android:id="@+id/ShowPassword"
+        android:id="@+id/textPassword"
         style="@style/word_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

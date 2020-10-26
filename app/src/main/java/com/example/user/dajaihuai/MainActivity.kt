@@ -1,15 +1,15 @@
 package com.example.user.dajaihuai
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.facebook.stetho.Stetho
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,9 +22,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Stetho.initializeWithDefaults(this);
-        val db = Appdatabase(this)
+
 //        val userData:UserData? = null
-//        var userData:UserData? = UserData("facebook","account","password")
+        var userData:ArrayList<UserData> = ArrayList()
+
+//        userData.add(UserData(12,"facebook","account","password"))
+
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
+        val adapter = UserListAdapter(this)
+        adapter.setUsers(userData)
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        val db = Appdatabase(this)
 
         job = GlobalScope.launch(Dispatchers.IO) {
 //            db.getNotesDao().getAll()
